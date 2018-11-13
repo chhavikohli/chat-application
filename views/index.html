@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>chat Application</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="users.js" rel="jquery">
+</head>
+
+<body>
+    <div class="outerBoundary">
+        <form class="registeredUser-info">
+            <h1>PLEASE LOGIN!!</h1>
+            <br>
+            USER NAME: <input type="text" name="login-username" id="login-username"><br><br>
+            <input type="button" onclick="currentUserAuthenticate()" value="Login">
+        </form>
+    </div>
+    <div class="home">
+        <div class="friendList">
+            <div class="search-container">
+                <div class="currentUser-container">
+                    <li class="sub-list">
+                        <img src="" alt="" />
+                        <div class="sub-list-data">
+                            <div class="name"></div>
+                        </div>
+                    </li>
+                    <div class="dropdown" style="float:right">
+                        <span>...</span>
+                        <div class="dropdown-content">
+                            <button onclick="logout()" type="submit">Logout</button>
+                        </div>
+                    </div>
+                </div>
+
+                <form>
+                    <input id="search-box " type="text" placeholder="Search.." name="search" style="width: 90% ; margin-bottom: 10px">
+                    <button type="submit" class="search">search</button>
+                </form>
+            </div>
+            <div class="list-container">
+                <div class="popup" onclick="showPopup()">Create Group
+                    <span class="popuptext" id="myPopup">
+                        <form method="post">
+                            <input style="margin-left: 20px" type="text" name="room-name" id="room-name" placeholder="Enter group name">
+                            <p></p>
+                            <input type="file" id="room-image" style="width: 50%;margin: 10px;float: bottom">
+                            <button style="float:bottom;margin: 10px" onclick="return createRoom(event)">Done</button>
+                        </form>
+                    </span>
+                </div>
+
+                <div>
+                    <p style="padding: 10px "></p>
+                </div>
+                <ul class="list">
+                </ul>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="chat-container">
+                <li class="sub-list">
+                    <img src="" alt="" />
+                    <div class="sub-list-data">
+                        <div class="name"></div>
+                        <div class="status"></div>
+                    </div>
+                </li>
+            </div>
+            <div class="message-container" id="message-container">
+
+            </div>
+            <!-- <input type='file' onchange="readURL(this);" />
+                <img id="blah" src="#" alt="your image" /> -->
+
+            <div class="textbox">
+                <input id="messageBox" type="text" placeholder="Type your message" onkeypress="return sendMessage(event)" />
+                <div class="dropdown">
+                    <button class="dropbtn"></button>
+                    <div class="dropdown-content">
+                        <div class=smiley-grid></div>
+                    </div>
+                </div>
+
+                <input type="file" id="room-file" style="width: 20%;margin: 10px;float: bottom">
+               
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="jQuery.js"></script>
+<script src="socketIo.js"></script>
+<script src="users.js"></script>      
